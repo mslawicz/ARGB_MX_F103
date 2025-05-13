@@ -1,0 +1,22 @@
+{
+    "configurations": [
+        {
+            "cwd": "${workspaceRoot}",
+            "executable": "./build/Debug/ARGB_MX_F103.elf",
+            "name": "Debug with OpenOCD",
+            "request": "launch",
+            "type": "cortex-debug",
+            "servertype": "openocd",
+            "configFiles": [
+                "interface/stlink-dap.cfg",
+                "target/stm32f1x.cfg"
+            ],
+            "searchDir": [],
+            "runToEntryPoint": "main",
+            "showDevDebugOutput": "raw",
+            "device": "STM32F103xB",
+            "svdFile": "./STM32F103.svd"
+        }
+    ],
+    "version": "2.0.0"
+}
