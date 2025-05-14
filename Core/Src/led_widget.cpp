@@ -1,6 +1,5 @@
 #include "led_widget.h"
 #include "app_api.h"
-#include "main.h"
 #include "cmsis_os.h"
 
 void statusTaskHandler(void)
@@ -9,12 +8,19 @@ void statusTaskHandler(void)
 
     for(;;)
     {
-        statusLed.test();
-        osDelay(500);
+        statusLed.test(LedState::On);
+        osDelay(100);
+        statusLed.test(LedState::Off);
+        osDelay(900);        
     }
 }
 
-void LedWidget::test(void)
+void LedWidget::test(LedState state)
 {
-    HAL_GPIO_TogglePin(LD2_GPIO_Port, LD2_Pin);
+    setLed(state);
+}
+
+void LedWidget::setLed(LedState state)
+{
+    HAL_GPIO_WritePin(LD2_GPIO_Port, LD2_Pin, static_cast<GPIO_PinState>(state));
 }
