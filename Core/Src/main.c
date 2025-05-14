@@ -289,6 +289,7 @@ static void MX_GPIO_Init(void)
 void StartDefaultTask(void *argument)
 {
   /* USER CODE BEGIN 5 */
+  UNUSED(argument);
   /* Infinite loop */
   for(;;)
   {
@@ -307,6 +308,7 @@ void StartDefaultTask(void *argument)
 void statusTaskStart(void *argument)
 {
   /* USER CODE BEGIN statusTaskStart */
+  UNUSED(argument);
   /* Infinite loop */
   for(;;)
   {
