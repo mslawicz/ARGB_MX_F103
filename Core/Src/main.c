@@ -22,7 +22,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+//#include "app_api.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -69,7 +69,7 @@ void StartDefaultTask(void *argument);
 void statusTaskStart(void *argument);
 
 /* USER CODE BEGIN PFP */
-
+void statusTaskHandler(void);
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -309,12 +309,8 @@ void statusTaskStart(void *argument)
 {
   /* USER CODE BEGIN statusTaskStart */
   UNUSED(argument);
-  /* Infinite loop */
-  for(;;)
-  {
-    HAL_GPIO_TogglePin(LD2_GPIO_Port, LD2_Pin);
-    osDelay(500);
-  }
+
+  statusTaskHandler();
   /* USER CODE END statusTaskStart */
 }
 
